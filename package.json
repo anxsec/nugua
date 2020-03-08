@@ -1,0 +1,35 @@
+{
+  "name": "nuwa",
+  "version": "0.0.1",
+  "description": "An Error Capturer for Modern Browsers'",
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "eslint": "^6.8.0",
+    "eslint-config-alloy": "^3.6.0",
+    "json-loader": "^0.5.7",
+    "prettier": "^1.19.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "yaml-loader": "^0.5.0"
+  },
+  "scripts": {
+    "compile": "webpack",
+    "lint": "eslint src --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anxsec/error-capturer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anxsec/error-capturer/issues"
+  },
+  "homepage": "https://github.com/anxsec/error-capturer#readme"
+}
