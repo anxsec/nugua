@@ -15,7 +15,12 @@ export enum ErrorType {
     RuntimeError,
 }
 
-export interface IRuntimeErrorDetail {}
+export interface IRuntimeErrorDetail {
+    filename: string;
+    message: string;
+    lineNo: number;
+    colNo: number;
+}
 
 export interface IFetchErrorDetail {
     url: string;
@@ -41,7 +46,7 @@ export enum CaptureType {
     Runtime,
 }
 
-type TransferPayload = Error;
+export type TransferPayload = Error;
 
 interface Captures {
     [type: string]: ErrorCapturer;
@@ -49,6 +54,7 @@ interface Captures {
 
 abstract class ErrorCapturer {
     private static capturers: Captures = {};
+
     protected static getContext(): IErrorContext {
         return {
             // TODO: impl uuid
@@ -70,12 +76,13 @@ abstract class ErrorCapturer {
 
     public readonly type: CaptureType;
 
+    abstract readonly capturedHandler: CapturedHandler;
+
     public constructor(type: CaptureType) {
         this.type = type;
         ErrorCapturer.capturers[type] = this;
     }
 
-    public abstract onCaptured(handler: CapturedHandler): void;
     public abstract receiveCaptured(payload: TransferPayload): boolean;
     protected abstract generateFingerPrint(...arg: any[]): FingerPrint;
     protected abstract generateErrorLevel(...arg: any[]): ErrorLevel;

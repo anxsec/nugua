@@ -1,0 +1,14 @@
+{
+    "extends": ["alloy", "alloy/typescript"],
+    "env": {
+        "browser": true
+        // node: true,
+        // mocha: true,
+        // jest: true,
+        // jquery: true
+    },
+    "rules": {
+        "max-params": ["error", 4],
+        "no-parameter-properties": 0
+    }
+}

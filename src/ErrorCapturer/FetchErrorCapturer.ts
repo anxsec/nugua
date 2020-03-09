@@ -8,18 +8,14 @@ import ErrorCapturer, {
 } from './ErrorCapturer';
 
 class FetchErrorCapturer extends ErrorCapturer {
+    public readonly capturedHandler: CapturedHandler;
     private originalFetch: typeof window.fetch;
-    private capturedHandler: CapturedHandler;
 
-    public constructor() {
+    public constructor(handler: CapturedHandler) {
         super(CaptureType.Fetch);
+        this.capturedHandler = handler;
         this.originalFetch = window.fetch;
         window.fetch = this.capturedFetch;
-    }
-
-    public onCaptured(handler: CapturedHandler) {
-        // only take effects at first time
-        if (!this.capturedHandler) this.capturedHandler = handler;
     }
 
     public receiveCaptured() {
