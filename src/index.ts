@@ -1,5 +1,5 @@
-import { COLLECTION_MAX_INTERVAL, COLLECTOR_SIZE } from "config";
+import ErrorCollector from './ErrorCollector/ErrorCollector';
 
-console.log({ COLLECTION_MAX_INTERVAL, COLLECTOR_SIZE });
-
-function init(): void {}
+export default function init(): ErrorCollector {
+    return new ErrorCollector();
+}
