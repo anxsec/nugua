@@ -6,7 +6,7 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "module": "ES6",
-        "target": "ES5",
+        "target": "ES6",
         "declaration": true
     }
 }
