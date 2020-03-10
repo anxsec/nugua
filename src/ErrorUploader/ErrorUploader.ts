@@ -1,6 +1,18 @@
-import { ICapturedError } from '../ErrorCapturer/ErrorCapturer';
+import { ICapturedError } from '../types/ErrorCapturer';
 
 export default class ErrorUploader {
+    private static instance: ErrorUploader;
+
+    public static getInstance() {
+        if (!ErrorUploader.instance)
+            ErrorUploader.instance = new ErrorUploader();
+        return ErrorUploader.instance;
+    }
+
+    private constructor() {
+        console.log('ErrorUploader Created.');
+    }
+
     public upload(capturedErrorQueue: ICapturedError[]): Promise<void> {
         // simulate the upload
         return new Promise((resolve, reject) => {

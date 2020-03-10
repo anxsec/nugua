@@ -18,7 +18,7 @@ export default class ErrorCollector {
         this.runtimeErrorCapturer = RuntimeErrorCapturer.getInstance(
             this.onCollected.bind(this),
         );
-        this.errorUploader = new ErrorUploader();
+        this.errorUploader = ErrorUploader.getInstance();
         this.errorQueue = [];
         this.setupTimeoutSchedule();
     }
