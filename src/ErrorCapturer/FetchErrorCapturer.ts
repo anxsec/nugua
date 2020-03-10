@@ -1,11 +1,13 @@
-import ErrorCapturer, {
+import {
     CaptureType,
     ErrorType,
     FingerPrint,
     ErrorLevel,
     ICapturedError,
     CapturedHandler,
-} from './ErrorCapturer';
+} from '../types/ErrorCapturer';
+
+import ErrorCapturer from './ErrorCapturer';
 
 class FetchErrorCapturer extends ErrorCapturer {
     public readonly capturedHandler: CapturedHandler;

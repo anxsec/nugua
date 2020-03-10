@@ -1,11 +1,12 @@
-import ErrorCapturer, {
+import {
     ErrorType,
     CaptureType,
     CapturedHandler,
     TransferPayload,
     FingerPrint,
     ErrorLevel,
-} from './ErrorCapturer';
+} from '../types/ErrorCapturer';
+import ErrorCapturer from './ErrorCapturer';
 
 class RuntimeErrorCapturer extends ErrorCapturer {
     public readonly capturedHandler: CapturedHandler;
