@@ -14,5 +14,5 @@ COLLECTOR_SIZE: 10
 ## TODO
 
 -   [ ] Add automated testing.
--   [ ] Refactor `types` directory structure and extract ts type definitions from source code.
+-   [x] Refactor `types` directory structure and extract ts type definitions from source code.
 -   [ ] Improve complication process.
