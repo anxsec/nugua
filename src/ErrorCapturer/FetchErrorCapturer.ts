@@ -10,7 +10,17 @@ import {
 import ErrorCapturer from './ErrorCapturer';
 
 class FetchErrorCapturer extends ErrorCapturer {
+    private static instance: FetchErrorCapturer;
+
+    public static getInstance(handler: CapturedHandler) {
+        if (!FetchErrorCapturer.instance) {
+            FetchErrorCapturer.instance = new FetchErrorCapturer(handler);
+        }
+        return FetchErrorCapturer.instance;
+    }
+
     public readonly capturedHandler: CapturedHandler;
+
     private originalFetch: typeof window.fetch;
 
     public constructor(handler: CapturedHandler) {

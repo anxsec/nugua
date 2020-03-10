@@ -36,7 +36,7 @@ abstract class ErrorCapturer {
 
     abstract readonly capturedHandler: CapturedHandler;
 
-    public constructor(type: CaptureType) {
+    protected constructor(type: CaptureType) {
         this.type = type;
         ErrorCapturer.capturers[type] = this;
     }

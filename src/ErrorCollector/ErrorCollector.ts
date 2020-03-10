@@ -1,5 +1,5 @@
 import { COLLECTION_MAX_INTERVAL, COLLECTOR_SIZE } from 'config';
-import { ICapturedError } from '../ErrorCapturer/ErrorCapturer';
+import { ICapturedError } from '../types/ErrorCapturer';
 import FetchErrorCapturer from '../ErrorCapturer/FetchErrorCapturer';
 import RuntimeErrorCapturer from '../ErrorCapturer/RuntimeErrorCapturer';
 import ErrorUploader from '../ErrorUploader/ErrorUploader';
@@ -12,10 +12,10 @@ export default class ErrorCollector {
     private timeoutScheduleTimer: number;
 
     public constructor() {
-        this.fetchErrorCapturer = new FetchErrorCapturer(
+        this.fetchErrorCapturer = FetchErrorCapturer.getInstance(
             this.onCollected.bind(this),
         );
-        this.runtimeErrorCapturer = new RuntimeErrorCapturer(
+        this.runtimeErrorCapturer = RuntimeErrorCapturer.getInstance(
             this.onCollected.bind(this),
         );
         this.errorUploader = new ErrorUploader();

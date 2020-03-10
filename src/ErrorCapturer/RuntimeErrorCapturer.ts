@@ -9,9 +9,18 @@ import {
 import ErrorCapturer from './ErrorCapturer';
 
 class RuntimeErrorCapturer extends ErrorCapturer {
+    private static instance: RuntimeErrorCapturer;
+
+    public static getInstance(handler: CapturedHandler) {
+        if (!RuntimeErrorCapturer.instance) {
+            RuntimeErrorCapturer.instance = new RuntimeErrorCapturer(handler);
+        }
+        return RuntimeErrorCapturer.instance;
+    }
+
     public readonly capturedHandler: CapturedHandler;
 
-    public constructor(handler: CapturedHandler) {
+    private constructor(handler: CapturedHandler) {
         super(CaptureType.Runtime);
         this.capturedHandler = handler;
         window.addEventListener(
