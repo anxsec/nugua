@@ -13,6 +13,7 @@ COLLECTOR_SIZE: 10
 
 ## TODO
 
--   [ ] Add automated testing.
 -   [x] Refactor `types` directory structure and extract ts type definitions from source code.
+-   [ ] Use IoC to initialize objects and inject dependencies.
+-   [ ] Add automated testing.
 -   [ ] Improve complication process.
