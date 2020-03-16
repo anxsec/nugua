@@ -1,4 +1,4 @@
-# nuwa
+# nugua
 
 An Error Monitoring SDK for Web Browsers.
 
